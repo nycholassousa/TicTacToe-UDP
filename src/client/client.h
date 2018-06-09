@@ -133,9 +133,9 @@ int tictactoe(char board[ROWS][COLUMNS])
     print_board(board);
 
     if (i == 1) // means a player won!! congratulate them
-        printf("==>\aPlayer %d wins\n ", player);
+        printf("==> \tPlayer %d wins\n ", player);
     else
-        printf("==>\aGame draw"); // ran out of squares, it is a draw
+        printf("==> \tGame draw"); // ran out of squares, it is a draw
     close(sd);
     return 0;
 }

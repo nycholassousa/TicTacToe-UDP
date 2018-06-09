@@ -1,18 +1,10 @@
 #pragma once
 
-#include <stdio.h>
-#include <strings.h>
-#include <stdlib.h>
+#include <iostream>
 #include <unistd.h>
-#include <errno.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <netdb.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
 #include <poll.h>
-#include <string>
 #include <cstring>
 
 /* #define section, for now we will define the number of rows and columns */
@@ -65,31 +57,36 @@ void print_board(char board[ROWS][COLUMNS])
     /* brute force print out the board and all the squares/values    */
     /*****************************************************************/
 
-    printf("\n\n\n\tCurrent TicTacToe Game\n\n");
+    std::cout << std::endl
+              << std::endl
+              << std::endl
+              << "\tCurrent TicTacToe Game"
+              << std::endl
+              << std::endl;
 
-    printf("Player 1 (X)  -  Player 2 (O)\n\n\n");
+    std::cout << "Player 1 (X)  -  Player 2 (O)"
+              << std::endl
+              << std::endl
+              << std::endl;
 
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c \n", board[0][0], board[0][1], board[0][2]);
-
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-
-    printf("  %c  |  %c  |  %c \n", board[1][0], board[1][1], board[1][2]);
-
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-
-    printf("  %c  |  %c  |  %c \n", board[2][0], board[2][1], board[2][2]);
-
-    printf("     |     |     \n\n");
+    std::cout << "     |     |     " << std::endl;
+    std::cout << "  " << board[0][0] << "  |  " << board[0][1] << "  |  " << board[0][2] << " " << std::endl;
+    std::cout << "_____|_____|_____" << std::endl;
+    std::cout << "     |     |     " << std::endl;
+    std::cout << "  " << board[1][0] << "  |  " << board[1][1] << "  |  " << board[1][2] << " " << std::endl;
+    std::cout << "_____|_____|_____" << std::endl;
+    std::cout << "     |     |     " << std::endl;
+    std::cout << "  " << board[2][0] << "  |  " << board[2][1] << "  |  " << board[2][2] << " " << std::endl;
+    std::cout << "     |     |     "
+              << std::endl
+              << std::endl;
 }
 
 int initSharedState(char board[ROWS][COLUMNS])
 {
     /* this just initializing the shared state aka the board */
     int i, j, count = 1;
-    printf("in sharedstate area\n");
+    std::cout << "in sharedstate area" << std::endl;
     for (i = 0; i < 3; i++)
         for (j = 0; j < 3; j++)
         {
